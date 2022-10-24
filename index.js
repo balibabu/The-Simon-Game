@@ -1,7 +1,4 @@
 var buttonColours=["red", "blue", "green", "yellow"];
-for(var i=0;i<buttonColours.length;i++){
-    makeSound(buttonColours[i]);
-}
 var gamePattern=[];
 var counter=0;
 var gameOver=-1;
