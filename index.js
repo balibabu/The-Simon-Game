@@ -14,19 +14,26 @@ $('.btn').click(function (){
         counter--;
     }else{
         makeSound('wrong');
-        $('h1').text('Game Over');
+        $('h1').text('Game Over !!! press any key to restart');
         gameOver=1;
+        started=-1;
+        
+        $('body').addClass('game-over');
+        setTimeout(function(){
+            $('body').removeClass('game-over');
+        },200);
     }
     if(counter===0){
         counter=gamePattern.length;
         setTimeout(() => {start();}, 1000);
     }
-    console.log(counter);
-    
 });
 
 $(document).keypress(function(event){
-    if(gameOver!==1 && started!==1){
+    if(started!==1){
+        gamePattern=[];
+        counter=0;
+        gameOver=-1;
         start();
     }
     started=1;
@@ -38,9 +45,7 @@ function start(){
     buttonAnimation(randomChosenColour);
     gamePattern.push(randomChosenColour);
     counter++;
-    //setTimeout(function(){},200);
-    console.log(gamePattern);
-    
+    $('h1').text('Level '+counter);
 }
 
 function nextSequence(){
@@ -49,41 +54,13 @@ function nextSequence(){
 }
 
 function buttonAnimation(buttonColor){
-    var activeButton=document.querySelector('#'+buttonColor);
-    activeButton.classList.add('pressed');
+    $('#'+buttonColor).addClass('pressed');
     setTimeout(function(){
-        activeButton.classList.remove('pressed');
+        $('#'+buttonColor).removeClass('pressed');
     },200);
 }   
 
 function makeSound(colorName){
-    switch (colorName) {
-        case 'blue':
-            var audio=new Audio('sounds/blue.mp3');
-            audio.play();
-            break;
-        
-        case 'green':
-            var audio=new Audio('sounds/green.mp3');
-            audio.play();
-            break;
-
-        case 'yellow':
-            var audio=new Audio('sounds/yellow.mp3');
-            audio.play();
-            break;
-
-        case 'red':
-            var audio=new Audio('sounds/red.mp3');
-            audio.play();
-            break;
-
-        case 'wrong':
-            var audio=new Audio('sounds/wrong.mp3');
-            audio.play();
-            break;
-
-        default:
-            break;
-    }
+    var audio=new Audio('sounds/'+colorName+'.mp3');
+    audio.play();
 }
