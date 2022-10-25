@@ -17,6 +17,7 @@ $('.btn').click(function (){
         $('h1').text('Game Over !!! press restart button');
         $('button').text('re-start');
         $('button').css('visibility','visible');
+        $('h2').text('Total Score: '+(gamePattern.length-1))
         $('h2').css('visibility','visible');
         $('h1').css('visibility','visible');
         $('body').css('visibility','hidden');
