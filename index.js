@@ -14,7 +14,13 @@ $('.btn').click(function (){
         counter--;
     }else{
         makeSound('wrong');
-        $('h1').text('Game Over !!! press any key to restart');
+        $('h1').text('Game Over !!! press restart button');
+        $('button').text('re-start');
+        $('button').css('visibility','visible');
+        $('h2').css('visibility','visible');
+        $('h1').css('visibility','visible');
+        $('body').css('visibility','hidden');
+
         gameOver=1;
         started=-1;
         
@@ -29,12 +35,18 @@ $('.btn').click(function (){
     }
 });
 
-$(document).keypress(function(event){
+$('button').click(function(){
     if(started!==1){
         gamePattern=[];
         counter=0;
         gameOver=-1;
         start();
+        $('button').text('start');
+        $('button').css('visibility','hidden');
+        $('body').css('visibility','visible');
+        $('h2').css('visibility','hidden');
+
+
     }
     started=1;
 });
