@@ -69,7 +69,7 @@ function gameOver() {
     $("body").removeClass("game-over");
   }, 500);
   $("h1").text("Game Over !!!");
-  $("h2").text("Your Score:" + (gamePattern.length - 1));
+  $("h2").text("Your Score: " + (gamePattern.length - 1));
   $(".row").slideToggle();
   $(".start-btn").css("top", "65%");
   $(".start-btn").text("Re-start");

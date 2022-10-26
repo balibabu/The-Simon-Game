@@ -2,12 +2,16 @@ body{
     background-color: aqua;
 }
 h1{
-    font-size: 3rem;
+    font-size: 5vw;
     font-family: 'Sacramento', cursive;
+    margin: 0;
+}
+h2{
+    font-size: 3vw;
 }
 .box{
-    width:10vw;
-    height:10vw;
+    width:15vw;
+    height:15vw;
     border-radius: 20%;
     border: 5px solid black ;
     display: inline-block;
@@ -23,6 +27,7 @@ h1{
 }
 
 .start-btn{
+    width: 31vw;
     font-size: 5vw;
     background-color: rgb(133, 246, 68);
     border-radius: 40%;
